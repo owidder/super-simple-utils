@@ -1,0 +1,6 @@
+{
+  "main.css": "static/css/superSimpleUtils.css",
+  "main.css.map": "static/css/superSimpleUtils.css.map",
+  "main.js": "static/js/superSimpleUtils.js",
+  "main.js.map": "static/js/superSimpleUtils.js.map"
+}
