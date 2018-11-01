@@ -3,7 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/d3": "^5.0.1",
+    "@types/lodash": "^4.14.117",
     "d3": "^5.7.0",
+    "lodash": "^4.17.11",
+    "materialize-css": "^1.0.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-scripts-ts": "3.1.0"
