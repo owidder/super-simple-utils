@@ -1,7 +1,7 @@
-import {createTable} from './table/simpleTable';
+import {showDataAsTable} from './table/simpleDataTable';
 
 export const superSimpleUtils = {
-    createTable,
+    showDataAsTable,
 } as any;
 
 (window as any).superSimpleUtils = superSimpleUtils;

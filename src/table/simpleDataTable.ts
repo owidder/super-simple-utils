@@ -20,7 +20,7 @@ const getHeadlines = (data: StringMap[]) => {
     return headlines;
 }
 
-export const createTable = (selector: string, data: StringMap[]) => {
+export const showDataAsTable = (selector: string, data: StringMap[]) => {
     const headlines = getHeadlines(data);
 
     const root = d3.select(selector);
