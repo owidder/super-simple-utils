@@ -27,7 +27,7 @@ export const createTable = (selector: string, data: StringMap[]) => {
 
     const trhead = root
         .append("table")
-        .attr("class", "responsive-table")
+        .attr("class", "responsive-table striped")
         .append("thead")
         .append("tr");
 
