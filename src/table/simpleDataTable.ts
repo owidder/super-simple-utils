@@ -1,8 +1,6 @@
 import * as d3 from 'd3';
 import * as _ from 'lodash';
 
-import 'materialize-css/dist/css/materialize.css';
-
 interface StringMap {
     [key: string]: string | number;
 }
