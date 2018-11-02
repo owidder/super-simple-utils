@@ -46,3 +46,5 @@ export const showDataAsTable = (selector: string, data: StringMap[]) => {
         trbody.append("td").text(d => _.isUndefined(d[headline]) ? "" : d[headline]);
     })
 }
+
+(window as any).showDataAsTable = showDataAsTable;
