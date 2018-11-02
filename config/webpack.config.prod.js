@@ -59,7 +59,7 @@ module.exports = {
     devtool: shouldUseSourceMap ? 'source-map' : false,
     // In production, we only want to load the polyfills and the app code.
     entry: {
-        simpleDataTable: paths.appSrc + '/table/showDataAsTable.ts',
+        showDataAsTable: paths.appSrc + '/table/showDataAsTable.ts',
         superSimpleUtils: paths.appSrc + '/index.ts'
     },
     output: {
