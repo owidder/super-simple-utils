@@ -1,4 +1,6 @@
 {
-  "main.js": "static/js/superSimpleUtils.min.js",
-  "main.js.map": "static/js/superSimpleUtils.min.js.map"
+  "simpleDataTable.js": "static/js/simpleDataTable.min.js",
+  "simpleDataTable.js.map": "static/js/simpleDataTable.min.js.map",
+  "superSimpleUtils.js": "static/js/superSimpleUtils.min.js",
+  "superSimpleUtils.js.map": "static/js/superSimpleUtils.min.js.map"
 }
