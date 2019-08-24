@@ -84,7 +84,7 @@ const config = {
             filename: "superSimpleUtils.html",
             inject: true,
             chunks: ["superSimpleUtils"],
-            template: `${PUBLIC_PATH}/index.html`,
+            template: `${TEMPLATES_PATH}/index.html`,
         })
     ],
     resolve: {
