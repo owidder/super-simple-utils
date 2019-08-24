@@ -1,4 +1,4 @@
-## some super simple utile
+## just some utils (super simple)
 * showDataAsTable
 ```
 <body>
