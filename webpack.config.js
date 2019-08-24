@@ -50,29 +50,25 @@ const config = {
                 include: absPath("src"),
             },
             {
-                oneOf: [
+                test: /\.(ts|tsx)$/,
+                include: absPath("src"),
+                use: [
                     {
-                        test: /\.(ts|tsx)$/,
-                        include: absPath("src"),
-                        use: [
-                            {
-                                loader: require.resolve('ts-loader'),
-                                options: {
-                                    // see: https://github.com/TypeStrong/ts-loader#faster-builds
-                                    transpileOnly: true,
-                                },
-                            },
-                        ],
-                    },
-                    {
-                        test: /\.less$/,
-                        use: ["style-loader", "css-loader", "less-loader"]
-                    },
-                    {
-                        test: /\.css$/,
-                        use: [{loader: MiniCssExtractPlugin.loader}, "css-loader"]
+                        loader: require.resolve('ts-loader'),
+                        options: {
+                            // see: https://github.com/TypeStrong/ts-loader#faster-builds
+                            transpileOnly: true,
+                        },
                     },
                 ],
+            },
+            {
+                test: /\.less$/,
+                use: ["style-loader", "css-loader", "less-loader"]
+            },
+            {
+                test: /\.css$/,
+                use: [{loader: MiniCssExtractPlugin.loader}, "css-loader"]
             },
         ],
     },
