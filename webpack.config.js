@@ -32,7 +32,7 @@ const config = {
     },
     output: {
         path: path.resolve(__dirname, "build"),
-        filename: `static/js/[name].${VERSION}.js`,
+        filename: `static/js/[name].${VERSION}${process.env.NODE_ENV == "production" ? ".min" : ""}.js`,
     },
     devtool: 'source-map',
     devServer: {
