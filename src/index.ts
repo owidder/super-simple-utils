@@ -1,4 +1,4 @@
-import {showDataAsTable} from './table/showDataAsTable';
+import {showDataAsTable} from './showDataAsTable/showDataAsTable';
 
 export const superSimpleUtils = {
     showDataAsTable,
