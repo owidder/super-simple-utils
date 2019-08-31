@@ -1,14 +1,13 @@
 import * as d3 from 'd3';
-import * as _ from 'lodash';
 
 interface StringMap {
     [key: string]: string | number;
 }
 
-const getHeadlines = (data: StringMap[]) => {
+const getHeadlines = (data: StringMap[]): string[] => {
     const headlines: string[] = [];
     data.forEach(element => {
-        _.keys(element).forEach(key => {
+        Object.keys(element).forEach(key => {
             if(headlines.indexOf(key) < 0) {
                 headlines.push(key);
             }
@@ -18,33 +17,37 @@ const getHeadlines = (data: StringMap[]) => {
     return headlines;
 }
 
-export const showDataAsTable = (selector: string, data: StringMap[]) => {
+export const showDataAsTable = (selector: string, data: StringMap[], idAttributeName?: string, tableClass?: string) => {
     const headlines = getHeadlines(data);
-
     const root = d3.select(selector);
 
     const trhead = root
         .append("table")
-        .attr("class", "responsive-table striped")
+        .attr("class", tableClass)
         .append("thead")
         .append("tr");
 
-    trhead.selectAll("th")
-        .data(headlines)
+    // @ts-ignore (WebStorm thinks this is not correct, but it is)
+    const headDataSelection = trhead.selectAll("th").data(headlines, d => d);
+
+    headDataSelection
         .enter()
         .append("th")
         .text(d => d);
 
+    headDataSelection.exit().remove();
+
     const tbody = root.select("table").append("tbody");
 
-    const trbody = tbody.selectAll("tr")
-        .data(data)
-        .enter()
-        .append("tr");
+    const bodyDataSelection = tbody.selectAll("tr").data(data, idAttributeName ? d => d[idAttributeName] : undefined);
+
+    const trbody = bodyDataSelection.enter().append("tr");
 
     headlines.forEach(headline => {
-        trbody.append("td").text(d => _.isUndefined(d[headline]) ? "" : d[headline]);
-    })
+        trbody.append("td").text(d => d[headline] ? "" : d[headline]);
+    });
+
+    bodyDataSelection.exit().remove();
 }
 
 (window as any).showDataAsTable = showDataAsTable;

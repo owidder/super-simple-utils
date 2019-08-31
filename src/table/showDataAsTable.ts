@@ -1,5 +1,4 @@
 import * as d3 from 'd3';
-import * as _ from 'lodash';
 
 interface StringMap {
     [key: string]: string | number;
@@ -8,7 +7,7 @@ interface StringMap {
 const getHeadlines = (data: StringMap[]) => {
     const headlines: string[] = [];
     data.forEach(element => {
-        _.keys(element).forEach(key => {
+        Object.keys(element).forEach(key => {
             if(headlines.indexOf(key) < 0) {
                 headlines.push(key);
             }
@@ -18,9 +17,8 @@ const getHeadlines = (data: StringMap[]) => {
     return headlines;
 }
 
-export const showDataAsTable = (selector: string, data: StringMap[]) => {
+export const showDataAsTable = (selector: string, data: StringMap[], idAttributeName?: string) => {
     const headlines = getHeadlines(data);
-
     const root = d3.select(selector);
 
     const trhead = root
@@ -37,14 +35,15 @@ export const showDataAsTable = (selector: string, data: StringMap[]) => {
 
     const tbody = root.select("table").append("tbody");
 
-    const trbody = tbody.selectAll("tr")
-        .data(data)
-        .enter()
-        .append("tr");
+    const dataSelection = tbody.selectAll("tr").data(data, idAttributeName ? d => d[idAttributeName] : undefined);
+
+    const trbody = dataSelection.enter().append("tr");
 
     headlines.forEach(headline => {
-        trbody.append("td").text(d => _.isUndefined(d[headline]) ? "" : d[headline]);
-    })
+        trbody.append("td").text(d => d[headline] ? "" : d[headline]);
+    });
+
+    dataSelection.exit().remove();
 }
 
 (window as any).showDataAsTable = showDataAsTable;
