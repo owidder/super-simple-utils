@@ -28,3 +28,5 @@ export const hashSHA256 = (text: string): Promise<string> => {
         })
     })
 }
+
+(window as any).hashSHA256 = hashSHA256;
