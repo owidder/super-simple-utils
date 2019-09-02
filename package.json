@@ -5,12 +5,11 @@
   "dependencies": {
     "@types/d3": "^5.0.1",
     "@types/lodash": "^4.14.117",
-    "d3": "^5.7.0",
-    "lodash": "^4.17.15"
+    "d3": "^5.7.0"
   },
   "homepage": "https://owidder.github.io/super-simple-utils/build",
   "scripts": {
-    "start": "node scripts/start.js",
+    "start": "cross-env NODE_ENV=development webpack-dev-server",
     "clean": "rimraf build",
     "build": "npm run clean && cross-env NODE_ENV=production webpack",
     "build:dev": "npm run clean && cross-env NODE_ENV=development webpack"
@@ -28,6 +27,7 @@
     "ts-loader": "^6.0.4",
     "typescript": "^3.5.3",
     "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.7"
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0"
   }
 }
