@@ -5,7 +5,7 @@
   "dependencies": {
     "@types/d3": "^5.0.1",
     "@types/lodash": "^4.14.117",
-    "d3": "^5.7.0"
+    "d3": "^7.6.1"
   },
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server",
